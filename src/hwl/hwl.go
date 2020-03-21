@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "hwl/tool/logs"
 
 func main() {
-	fmt.Println("hello world")
+	logs.Println("Hello World")
 }
