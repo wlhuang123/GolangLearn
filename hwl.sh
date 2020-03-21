@@ -1,4 +1,4 @@
-export GOPATH=/home/hwl/go
+export GOPATH=/home/hwl/Code/GolangLearn
 cd src/hwl
 go build
 
