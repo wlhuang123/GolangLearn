@@ -1,7 +1,7 @@
 package main
 
-import "hwl/tool/logs"
+import "hwl/learn"
 
 func main() {
-	logs.Println("Hello World")
+	learn.PrintTest()
 }

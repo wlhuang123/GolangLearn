@@ -19,3 +19,8 @@ func init() {
 func Println(v ...interface{}) {
 	f.Println(v)
 }
+
+// Printf .
+func Printf(format string, v ...interface{}) {
+	f.Printf(format, v)
+}
