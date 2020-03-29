@@ -1,7 +1,9 @@
 package main
 
-import "hwl/learn"
+import (
+	"hwl/learn"
+)
 
 func main() {
-	learn.PrintTest()
+	learn.InplementPointerAndInsTest()
 }
