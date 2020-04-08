@@ -1,6 +1,18 @@
 package controllers
 
-import "github.com/astaxie/beego"
+import (
+	"hwl/tool/logs"
+
+	"github.com/astaxie/beego"
+)
+
+// User .
+type User struct {
+	ID       int    `form:"-"` // 不解析
+	Username string `form:"username"`
+	Age      string `form:"age"`
+	Email    string `form:"email"`
+}
 
 // ArgController 带参数的
 type ArgController struct {
@@ -8,13 +20,18 @@ type ArgController struct {
 }
 
 // Get .
-// http://127.0.0.1:8080/arg/?user=hwl&passwd=Hwl55555
 func (c *ArgController) Get() {
-	user := c.GetString("user")
-	c.Ctx.WriteString(user)
+	c.TplName = "index.html"
+}
 
-	c.Ctx.WriteString("\n")
+// Post .
+func (c *ArgController) Post() {
+	var u User
+	if err := c.ParseForm(&u); err != nil {
+		logs.Println(err)
+		return
+	}
 
-	passwd := c.Input().Get("passwd")
-	c.Ctx.WriteString(passwd)
+	c.Ctx.WriteString("uname:" + u.Username + " age:" + u.Age + " email:" + u.Email)
+
 }
