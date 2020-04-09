@@ -32,12 +32,23 @@ type TestModelController struct {
 // Get .
 func (c *TestModelController) Get() {
 	o := orm.NewOrm()
+
+	// 插入  想要插入成功，需要事先在数据库里面创建表user_info
+	// create table `user_info` (`i_d` int(11) auto_increment, `username` varchar(20) DEFAULT '', `passwd` varchar(11), primary key (i_d));
 	user := UserInfo{Username: "hwl", Passwd: "123456"}
-	id, err := o.Insert(&user) // 想要插入成功，需要事先在数据库里面创建表user_info
-	if err != nil {
+	if _, err := o.Insert(&user); err != nil {
 		logs.Println(err)
 		return
 	}
+	c.Ctx.WriteString(fmt.Sprintf("插入数据库:%+v", user))
 
-	c.Ctx.WriteString(fmt.Sprintf("操作数据库id:%v", id))
+	// 更新
+	user = UserInfo{Username: "fxp", Passwd: "123456"}
+	user.ID = 1
+	if _, err := o.Update(&user); err != nil {
+		logs.Println(err)
+		return
+	}
+	c.Ctx.WriteString(fmt.Sprintf("更新数据库:%+v", user))
+
 }
