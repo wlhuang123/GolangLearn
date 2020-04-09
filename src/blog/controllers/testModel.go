@@ -51,4 +51,16 @@ func (c *TestModelController) Get() {
 	}
 	c.Ctx.WriteString(fmt.Sprintf("更新数据库:%+v", user))
 
+	// 读取数据库ID是2的
+	user.ID = 2
+	o.Read(&user)
+	c.Ctx.WriteString(fmt.Sprintf("读取数据库:%+v", user))
+
+	// 删除数据库
+	user.ID = 3
+	if _, err := o.Delete(&user); err != nil {
+		logs.Println(err)
+		return
+	}
+	c.Ctx.WriteString(fmt.Sprintf("删除数据库:%+v", user))
 }
