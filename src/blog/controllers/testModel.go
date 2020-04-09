@@ -1,28 +1,11 @@
 package controllers
 
 import (
+	"blog/models"
 	"fmt"
-	"hwl/tool/logs"
 
-	"github.com/astaxie/beego"         // beego的web端
-	"github.com/astaxie/beego/orm"     // 操作mysql的
-	_ "github.com/go-sql-driver/mysql" // 驱动
+	"github.com/astaxie/beego" // beego的web端
 )
-
-func init() {
-	// 别名连接数据库只能调用一次，再次调用会报错defaulty已经注册不能reuse
-	// testmodel是操作的数据库名 mysql是使用的驱动名 default是连接数据库的一个别名
-	orm.RegisterDataBase("default", "mysql", "root:@tcp(127.0.0.1:3306)/testmodel?charset=utf8", 30)
-	orm.RegisterModel(new(UserInfo)) // 创建一个user_info表
-}
-
-// UserInfo 这个结构体要和数据库表的名字（user_info）对应
-//（数据库会自动把大写的变成小写并增加下划线）
-type UserInfo struct {
-	ID       int64
-	Username string
-	Passwd   string
-}
 
 // TestModelController .
 type TestModelController struct {
@@ -31,36 +14,28 @@ type TestModelController struct {
 
 // Get .
 func (c *TestModelController) Get() {
-	o := orm.NewOrm()
+	// 插入
+	user := models.UserInfo{Username: "hwl", Passwd: "123456"}
+	models.AddUser(&user)
+	c.Ctx.WriteString(fmt.Sprintf("插入记录到表:%+v\n", user))
 
-	// 插入  想要插入成功，需要事先在数据库里面创建表user_info
-	// create table `user_info` (`i_d` int(11) auto_increment, `username` varchar(20) DEFAULT '', `passwd` varchar(11), primary key (i_d));
-	user := UserInfo{Username: "hwl", Passwd: "123456"}
-	if _, err := o.Insert(&user); err != nil {
-		logs.Println(err)
-		return
-	}
-	c.Ctx.WriteString(fmt.Sprintf("插入数据库:%+v", user))
+	// 更新指定id=2的记录
+	user = models.UserInfo{ID: 2, Username: "fxp", Passwd: "13264243343"}
+	models.UpdateUserInfo(&user)
+	c.Ctx.WriteString(fmt.Sprintf("更新数据库:%+v\n", user))
 
-	// 更新
-	user = UserInfo{Username: "fxp", Passwd: "123456"}
-	user.ID = 1
-	if _, err := o.Update(&user); err != nil {
-		logs.Println(err)
-		return
-	}
-	c.Ctx.WriteString(fmt.Sprintf("更新数据库:%+v", user))
-
-	// 读取数据库ID是2的
-	user.ID = 2
-	o.Read(&user)
-	c.Ctx.WriteString(fmt.Sprintf("读取数据库:%+v", user))
+	// 读取指定数据库的记录
+	user = models.UserInfo{ID: 2}
+	models.ReadUserInfo(&user)
+	c.Ctx.WriteString(fmt.Sprintf("查询表的id=2 数据:%+v\n", user))
 
 	// 删除数据库
-	user.ID = 3
-	if _, err := o.Delete(&user); err != nil {
-		logs.Println(err)
-		return
-	}
-	c.Ctx.WriteString(fmt.Sprintf("删除数据库:%+v", user))
+	user = models.UserInfo{ID: 1}
+	id, _ := models.DeleteUserInfo(&user)
+	c.Ctx.WriteString(fmt.Sprintf("删除数据库:%v\n", id))
+
+	// 查询所有表的信息
+	var users []models.UserInfo
+	models.ReadAllUserInfo(&users)
+	c.Ctx.WriteString(fmt.Sprintf("查询表的所有数据:%+v\n", users))
 }
