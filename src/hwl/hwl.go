@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	learn.InplementPointerAndInsTest()
+	learn.ActomicTest()
 }
