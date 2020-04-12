@@ -1,2 +1,4 @@
 pkg/
 src/hwl/hwl
+bin/hwl
+bin/blog
