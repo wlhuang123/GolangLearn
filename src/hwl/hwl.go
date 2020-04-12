@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	learn.ActomicTest()
+	learn.TimeTest()
 }
