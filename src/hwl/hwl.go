@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	learn.TimeTest()
+	learn.ChannelTest()
 }
