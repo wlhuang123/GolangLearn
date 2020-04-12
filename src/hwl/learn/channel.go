@@ -6,6 +6,7 @@ import "hwl/tool/logs"
 func ChannelTest() {
 	readFromChannelWhenClose()
 	writeFromChannelWhenClose()
+	getCap()
 }
 
 func readFromChannelWhenClose() {
@@ -29,4 +30,14 @@ func writeFromChannelWhenClose() {
 	c := make(chan int, 10)
 	close(c)
 	c <- 1
+}
+
+// cap获取的是缓冲区的大小,和当前通道占用多少无关
+// 获取当前占用使用len
+func getCap() {
+	c := make(chan int, 5)
+	logs.Println("cat c:", cap(c), " len c:", len(c))
+
+	c <- 1
+	logs.Println("cat c:", cap(c), " len c:", len(c))
 }
