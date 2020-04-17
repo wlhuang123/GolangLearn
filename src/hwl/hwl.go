@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	learn.ChannelTest()
+	learn.SliceTest()
 }
