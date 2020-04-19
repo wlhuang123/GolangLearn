@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	learn.SliceTest()
+	learn.InputLearnTest()
 }
