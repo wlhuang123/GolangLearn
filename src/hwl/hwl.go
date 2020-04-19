@@ -1,9 +1,7 @@
 package main
 
-import (
-	"hwl/learn"
-)
+import "hwl/learn/pkg"
 
 func main() {
-	learn.VarDeclareTest()
+	pkg.StringsTest()
 }
