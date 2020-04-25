@@ -1,6 +1,7 @@
 package logs
 
 import (
+	"fmt"
 	"log"
 	"os"
 )
@@ -17,10 +18,10 @@ func init() {
 
 // Println .
 func Println(v ...interface{}) {
-	f.Println(v)
+	f.Output(2, fmt.Sprint(v...))
 }
 
 // Printf .
 func Printf(format string, v ...interface{}) {
-	f.Printf(format, v)
+	f.Output(2, fmt.Sprintf(format, v...))
 }
