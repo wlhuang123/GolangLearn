@@ -1,9 +1,7 @@
 package main
 
-import "hwl/tool/logs"
+import "hwl/learn/pkg"
 
 func main() {
-	logs.Println("hello world")
-
-	logs.Printf("%s", "hello world")
+	pkg.OSTest()
 }
