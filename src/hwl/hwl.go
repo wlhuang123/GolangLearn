@@ -1,7 +1,7 @@
 package main
 
-import "hwl/learn/pkg"
+import "hwl/leecode"
 
 func main() {
-	pkg.OSTest()
+	leecode.Test021()
 }
