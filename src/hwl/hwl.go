@@ -1,7 +1,10 @@
 package main
 
-import "hwl/leecode"
+import (
+	"hwl/learn/pkg"
+)
 
 func main() {
-	leecode.Test021()
+	pkg.NetHTTPTest()
+
 }
