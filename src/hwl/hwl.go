@@ -1,10 +1,8 @@
 package main
 
-import (
-	"hwl/learn/pkg"
-)
+import "hwl/learn/pkgs"
 
 func main() {
-	pkg.NetHTTPTest()
+	pkgs.NetHTTPTest()
 
 }
