@@ -10,3 +10,12 @@ func IsBoolEqual(left, right bool) {
 		logs.Println("test failed")
 	}
 }
+
+// IsIntEqual .
+func IsIntEqual(left, right int) {
+	if left == right {
+		logs.Println("test ok")
+	} else {
+		logs.Println("test failed")
+	}
+}
