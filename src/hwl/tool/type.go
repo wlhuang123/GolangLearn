@@ -7,7 +7,9 @@ import (
 
 // GetType 获取变量的类型
 func GetType(v interface{}) string {
-	return reflect.TypeOf(v).Name()
+	t := reflect.TypeOf(v).Name()
+	logs.Println("type:", t)
+	return t
 }
 
 // GetPointerAddr .

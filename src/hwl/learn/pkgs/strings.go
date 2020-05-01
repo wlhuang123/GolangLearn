@@ -8,6 +8,7 @@ import (
 // StringsTest .
 func StringsTest() {
 	join()
+	compare()
 }
 
 func join() {
@@ -21,5 +22,9 @@ func join() {
 
 	// 每个数组数组元素和空格连接，最后一个元素不和空格连接
 	logs.Println(strings.Join(names, " "))
+}
 
+func compare() {
+	// 定义里面注释说比较速度比===快
+	strings.Compare("a", "b")
 }

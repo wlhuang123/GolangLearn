@@ -1,10 +1,12 @@
 package main
 
 import (
-	"hwl/leecode"
+	"hwl/learn"
+	"hwl/leetcode"
 )
 
 func main() {
-	leecode.Test009()
+	leetcode.Test020()
 
+	learn.TypeTest()
 }

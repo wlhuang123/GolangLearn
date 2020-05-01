@@ -1,4 +1,4 @@
-package leecode
+package leetcode
 
 import (
 	"hwl/tool/logs"
@@ -20,12 +20,12 @@ type ListNode struct {
 
 // Test021 .
 func Test021() {
-	Check(mergeTwoLists(createList(1, 3), createList(2)), 1, 2, 3)
-	Check(mergeTwoLists(createList(1, 2), createList(3)), 1, 2, 3)
-	Check(mergeTwoLists(createList(), createList()))
-	Check(mergeTwoLists(createList(1), createList()), 1)
-	Check(mergeTwoLists(createList(), createList(1)), 1)
-	Check(mergeTwoLists(createList(1, 5, 9), createList(1, 5, 6, 9)), 1, 1, 5, 5, 6, 9, 9)
+	Check021(mergeTwoLists(createList(1, 3), createList(2)), 1, 2, 3)
+	Check021(mergeTwoLists(createList(1, 2), createList(3)), 1, 2, 3)
+	Check021(mergeTwoLists(createList(), createList()))
+	Check021(mergeTwoLists(createList(1), createList()), 1)
+	Check021(mergeTwoLists(createList(), createList(1)), 1)
+	Check021(mergeTwoLists(createList(1, 5, 9), createList(1, 5, 6, 9)), 1, 1, 5, 5, 6, 9, 9)
 }
 
 func createList(v ...int) *ListNode {
@@ -40,9 +40,9 @@ func createList(v ...int) *ListNode {
 	return list
 }
 
-// Check .
-func Check(result *ListNode, expectResult ...int) {
-	isok := check(result, expectResult...)
+// Check021 .
+func Check021(result *ListNode, expectResult ...int) {
+	isok := checkResult(result, expectResult...)
 	if isok {
 		logs.Println("test ok ")
 	} else {
@@ -50,7 +50,7 @@ func Check(result *ListNode, expectResult ...int) {
 	}
 }
 
-func check(result *ListNode, expectResult ...int) bool {
+func checkResult(result *ListNode, expectResult ...int) bool {
 	defer func() {
 		if err := recover(); err != nil {
 			logs.Println(err)

@@ -1,10 +1,8 @@
-package leecode
+package leetcode
 
-import (
-	"hwl/tool/logs"
-)
+import "hwl/leetcode/check"
 
-// Test009 .
+// Test009 给定一个数,判断是不是回文数
 func Test009() {
 	Check009(isPalindrome(-121), false)
 	Check009(isPalindrome(0), true)
@@ -16,11 +14,7 @@ func Test009() {
 
 // Check009 .
 func Check009(left, right bool) {
-	if left == right {
-		logs.Println("test ok")
-	} else {
-		logs.Println("test failed")
-	}
+	check.IsBoolEqual(left, right)
 }
 
 func isPalindrome(x int) bool {
