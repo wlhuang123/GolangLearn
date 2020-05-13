@@ -1,9 +1,7 @@
 package main
 
-import (
-	"hwl/leetcode"
-)
+import "hwl/leetcode"
 
 func main() {
-	leetcode.Test007()
+	leetcode.Test027()
 }

@@ -5,17 +5,17 @@ import "hwl/tool/logs"
 // IsBoolEqual .
 func IsBoolEqual(left, right bool) {
 	if left == right {
-		logs.Println("test ok")
+		logs.Println(OK)
 	} else {
-		logs.Println("test failed")
+		logs.Println(Failed)
 	}
 }
 
 // IsIntEqual .
 func IsIntEqual(left, right int) {
 	if left == right {
-		logs.Println("test ok")
+		logs.Println(OK)
 	} else {
-		logs.Println("test failed")
+		logs.Println(Failed)
 	}
 }

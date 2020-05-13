@@ -37,9 +37,10 @@ func funcSendSlice() {
 	var s []int
 	s = append(s, 1)
 	modifySlice(s)
-	logs.Println(s[0])
+	logs.Println("after modify s:", s)
 }
 
 func modifySlice(s []int) {
 	s[0] = 2
+	s = append(s, 502)
 }

@@ -1,6 +1,7 @@
 package leetcode
 
 import (
+	"hwl/leetcode/check"
 	"hwl/tool/logs"
 )
 
@@ -44,9 +45,9 @@ func createList(v ...int) *ListNode {
 func Check021(result *ListNode, expectResult ...int) {
 	isok := checkResult(result, expectResult...)
 	if isok {
-		logs.Println("test ok ")
+		logs.Println(check.OK)
 	} else {
-		logs.Println("test failed ", expectResult)
+		logs.Println(check.Failed, expectResult)
 	}
 }
 
