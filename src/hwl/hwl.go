@@ -1,7 +1,9 @@
 package main
 
-import "hwl/leetcode"
+import (
+	"hwl/learn/pkgs"
+)
 
 func main() {
-	leetcode.Test027()
+	pkgs.ReflectTest()
 }
