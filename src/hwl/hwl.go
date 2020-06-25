@@ -1,9 +1,8 @@
 package main
 
-import (
-	"hwl/design"
-)
+import "hwl/learn"
 
 func main() {
-	design.ObserverTest()
+	learn.CopyTest()
+
 }

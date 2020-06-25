@@ -78,6 +78,7 @@ func modifyValue() {
 	logs.Println("num after modify:", num)
 }
 
+// Student .
 type Student struct {
 	Name string `json:"name_student"`
 	id   int

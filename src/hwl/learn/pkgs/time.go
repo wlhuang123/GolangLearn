@@ -1,4 +1,4 @@
-package learn
+package pkgs
 
 import (
 	"hwl/tool/logs"
