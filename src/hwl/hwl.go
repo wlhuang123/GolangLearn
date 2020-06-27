@@ -1,15 +1,19 @@
 package main
 
 import (
+	"bufio"
 	"hwl/tool/logs"
 	"io/ioutil"
 	"net/http"
+
+	"golang.org/x/net/html/charset"
+	"golang.org/x/text/encoding"
+	"golang.org/x/text/encoding/unicode"
+	"golang.org/x/text/transform"
 )
 
 func main() {
-	//learn.CopyTest()
-
-	resp, err := http.Get("https://www.jianshu.com/p/ffc221e3e404")
+	resp, err := http.Get("http://www.crazyflasher.com/skflashermsg/index.html")
 	if err != nil {
 		logs.Println(err)
 		panic(err)
@@ -20,10 +24,29 @@ func main() {
 		logs.Println("error http code:", resp.StatusCode)
 	}
 
-	content, err := ioutil.ReadAll(resp.Body)
+	r := bufio.NewReader(resp.Body)
+	e := determainEcoding(r)
+
+	utf8Reader := transform.NewReader(r, e.NewDecoder())
+
+	content, err := ioutil.ReadAll(utf8Reader)
 	if err != nil {
 		logs.Println(err)
 		return
 	}
 	logs.Println(string(content))
+}
+
+func determainEcoding(r *bufio.Reader) encoding.Encoding {
+	content, err := r.Peek(1024)
+	if err != nil {
+		logs.Println(err)
+		return unicode.UTF8
+	}
+
+	logs.Println(string(content))
+
+	e, _, _ := charset.DetermineEncoding(content, "")
+	return e
+
 }
