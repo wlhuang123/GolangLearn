@@ -1,9 +1,11 @@
 package main
 
 import (
-	"hwl/learn"
+	"hwl/tool"
+	"hwl/tool/logs"
 )
 
 func main() {
-	learn.SelectTest()
+	bit := tool.GetHostBits()
+	logs.Println(bit)
 }
