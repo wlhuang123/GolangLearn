@@ -1,12 +1,25 @@
 package learn
 
-import "hwl/tool/logs"
+import (
+	"crypto/sha1"
+	"hwl/tool/logs"
+)
 
 // SliceTest .
 func SliceTest() {
 	funcSendSlice()
 	nilsliceInit()
 	emptySliceInit()
+	sliceTest1()
+}
+
+// 匿名切片不可寻址
+// 大多数匿名值不可寻址，复合字面值除外
+func sliceTest1() {
+	input := []byte("Hello")
+	// sha1.Sum(input)[:5]    // compile error:函数返回的是匿名切片，匿名切片不可寻址
+	tmp := sha1.Sum(input)
+	logs.Println(tmp[:5]) // ok
 }
 
 // emptySliceInit 初始化空切片

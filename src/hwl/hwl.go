@@ -1,11 +1,8 @@
 package main
 
-import (
-	"hwl/tool"
-	"hwl/tool/logs"
-)
+import "hwl/learn"
 
 func main() {
-	bit := tool.GetHostBits()
-	logs.Println(bit)
+	learn.SliceTest()
+
 }
