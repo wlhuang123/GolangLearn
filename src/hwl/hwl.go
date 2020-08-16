@@ -1,9 +1,9 @@
 package main
 
 import (
-	"hwl/learn"
+	"hwl/learn/pkgs"
 )
 
 func main() {
-	learn.TypeTest()
+	pkgs.RPCTest()
 }
