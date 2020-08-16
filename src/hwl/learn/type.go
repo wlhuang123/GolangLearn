@@ -2,6 +2,7 @@ package learn
 
 import (
 	"hwl/tool"
+	"hwl/tool/logs"
 )
 
 /*
@@ -12,6 +13,7 @@ import (
 func TypeTest() {
 	stringType()
 	byteType()
+	runeType()
 }
 
 func stringType() {
@@ -26,4 +28,12 @@ func byteType() {
 	tool.GetType(b[0]) // uint8
 
 	tool.GetType('{') // int32
+}
+
+// rune是int32的别名，几乎在所有方面等同于int32
+// 它用来区分字符值和整数值
+func runeType() {
+	logs.Println("rune type:")
+	var i rune
+	tool.GetType(i)
 }
