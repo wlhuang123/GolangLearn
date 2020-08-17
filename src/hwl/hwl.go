@@ -1,9 +1,9 @@
 package main
 
 import (
-	"hwl/learn/pkgs"
+	"hwl/design"
 )
 
 func main() {
-	pkgs.RPCTest()
+	design.FactoryTest()
 }
