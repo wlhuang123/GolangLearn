@@ -1,9 +1,9 @@
 package main
 
 import (
-	"hwl/design"
+	"hwl/leetcode"
 )
 
 func main() {
-	design.AbstractFactoryTest()
+	leetcode.Test035()
 }
