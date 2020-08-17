@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	design.FactoryTest()
+	design.AbstractFactoryTest()
 }
