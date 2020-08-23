@@ -1,6 +1,9 @@
 package check
 
-import "hwl/tool/logs"
+import (
+	"hwl/tool"
+	"hwl/tool/logs"
+)
 
 // IsBoolEqual .
 func IsBoolEqual(left, right bool) {
@@ -18,4 +21,13 @@ func IsIntEqual(left, right int) {
 	} else {
 		logs.Println(Failed)
 	}
+}
+
+// IsTowSliceTheSame 包括位置要相同
+func IsTowSliceTheSame(left, right interface{}) {
+	if tool.IsTowSliceTheSame(left, right) {
+		logs.Println(OK)
+		return
+	}
+	logs.Println(Failed)
 }

@@ -63,3 +63,10 @@ func IsTowSliceTheSame(arr1 interface{}, arr2 interface{}) bool {
 	}
 	return true
 }
+
+// OrderChange 降序转为升序
+func OrderChange(nums []int) {
+	for i := 0; i < len(nums)-i; i++ {
+		nums[i], nums[len(nums)-1-i] = nums[len(nums)-1-i], nums[i]
+	}
+}

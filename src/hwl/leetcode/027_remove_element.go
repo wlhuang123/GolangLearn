@@ -2,7 +2,6 @@ package leetcode
 
 import (
 	"hwl/leetcode/check"
-	"hwl/tool"
 	"hwl/tool/logs"
 )
 
@@ -39,12 +38,7 @@ func Check027(nums []int, val int, targetNums []int, len int) {
 		return
 	}
 
-	//logs.Println(nums, targetNums)
-	if !tool.IsTowSliceTheSame(nums[0:result], targetNums) {
-		logs.Println(check.Failed)
-		return
-	}
-	logs.Println(check.OK)
+	check.IsTowSliceTheSame(nums[0:result], targetNums)
 }
 
 func removeElement(nums []int, val int) int {
