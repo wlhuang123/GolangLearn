@@ -1,9 +1,9 @@
 package main
 
 import (
-	"hwl/leetcode"
+	"hwl/learn/pkgs"
 )
 
 func main() {
-	leetcode.Test031()
+	pkgs.RegexpTest()
 }
