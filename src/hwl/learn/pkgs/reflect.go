@@ -101,6 +101,9 @@ func getStructField() {
 
 	for i := 0; i < num; i++ {
 		logs.Println(iType.Field(i).Tag.Get("json"))
+
+		// 打印结构体的成员变量名
+		logs.Println(iType.Field(i).Name)
 	}
 
 }

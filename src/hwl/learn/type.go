@@ -1,8 +1,11 @@
 package learn
 
 import (
+	"fmt"
 	"hwl/tool"
 	"hwl/tool/logs"
+	"strings"
+	"unicode"
 )
 
 /*
@@ -14,6 +17,7 @@ func TypeTest() {
 	stringType()
 	byteType()
 	runeType()
+	rangeString()
 }
 
 func stringType() {
@@ -36,4 +40,19 @@ func runeType() {
 	logs.Println("rune type:")
 	var i rune
 	tool.GetType(i)
+}
+
+// rangeString 遍历字符串 大写改成小写
+func rangeString() {
+	str := "HwlJrl"
+	var newStr string
+
+	for _, v := range str {
+		if unicode.IsUpper(v) {
+			newStr += strings.ToLower(string(v))
+		} else {
+			newStr += string(v)
+		}
+	}
+	fmt.Println(newStr)
 }
