@@ -45,6 +45,12 @@ func IsTowSliceEqual(arr1 interface{}, arr2 interface{}) bool {
 			return false
 		}
 	}
+
+	for i := 0; i < len(a2); i++ {
+		if !IsInArr(a1, a2[i]) {
+			return false
+		}
+	}
 	return true
 }
 
