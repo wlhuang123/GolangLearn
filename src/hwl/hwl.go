@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	//leetcode.GenBasicCode("015", "three_num_sum")
-	leetcode.Test015()
+	leetcode.Test013()
 }
