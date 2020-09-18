@@ -23,6 +23,15 @@ func IsIntEqual(left, right int) {
 	}
 }
 
+// IsStringEqual .
+func IsStringEqual(left, right string) {
+	if left == right {
+		logs.Println(OK)
+	} else {
+		logs.Println(Failed)
+	}
+}
+
 // IsTowSliceTheSame 包括位置要相同
 func IsTowSliceTheSame(left, right interface{}) {
 	if tool.IsTowSliceTheSame(left, right) {
