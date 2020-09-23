@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	leetcode.Test136()
-	//leetcode.GenBasicCode("136", "only_one_time_number")
+	leetcode.Test125()
+	// leetcode.GenBasicCode("125", "prove_huiwen_str")
 }
