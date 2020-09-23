@@ -14,16 +14,19 @@ import (
 
 // TypeTest .
 func TypeTest() {
-	stringType()
-	byteType()
-	runeType()
-	rangeString()
+	rangeStr()
+	// byteType()
+	// runeType()
+	// rangeString()
 }
 
-func stringType() {
-	s := "abc"
-	tool.GetType(s)    // string
-	tool.GetType(s[0]) // uint8
+func rangeStr() {
+	s := "我们"
+	for index, v := range s {
+		tool.GetType(v)        // int32 即rune
+		tool.GetType(s[index]) // uint8
+		fmt.Println(s[index])
+	}
 }
 
 func byteType() {

@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	leetcode.Test038()
+	leetcode.Test014()
 
-	// leetcode.GenBasicCode("038", "show num list")
+	//leetcode.GenBasicCode("014", "max long prefix")
 }
