@@ -5,7 +5,6 @@ import (
 )
 
 func main() {
-	leetcode.Test014()
-
-	//leetcode.GenBasicCode("014", "max long prefix")
+	leetcode.Test136()
+	//leetcode.GenBasicCode("136", "only_one_time_number")
 }
