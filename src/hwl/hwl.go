@@ -1,10 +1,11 @@
 package main
 
 import (
-	"hwl/leetcode"
+	"hwl/learn/pkgs"
 )
 
 func main() {
-	leetcode.Test202()
+	pkgs.UnSafeTest()
+	// leetcode.Test202()
 	// leetcode.GenBasicCode("202", "happy_number")
 }
