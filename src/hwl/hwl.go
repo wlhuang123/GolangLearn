@@ -3,7 +3,7 @@ package main
 import "hwl/leetcode"
 
 func main() {
-	leetcode.Test206()
-	//leetcode.GenBasicCode("206", "reverse_link")
+	leetcode.Test217()
+	// leetcode.GenBasicCode("217", "contains_repeat_element")
 
 }
