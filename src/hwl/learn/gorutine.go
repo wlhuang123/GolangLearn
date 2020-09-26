@@ -12,6 +12,11 @@ import (
 // 这是Golang的开发者故意为之，避免开发者滥用Goroutine Id实现Goroutine Local Storage(类似java的Thread Local Storage)，
 // 因为Goroutine Local Storage很难进行垃圾回收。因此尽管Go1.4之前暴露出了相应的方法，现在已经把它隐藏了。
 // 解决方法：将当前的堆栈信息写入到一个slice中，堆栈的第一行为 “goroutine #### […”，其中“####”就是当前的Goroutine Id
+// 还有一种方法是修改编译器代码，go其实本身可以获取，只是把函数隐藏了，效率是最高的，否则读取堆栈信息会影响性能。
+// func Goid() int64 {
+//  _g_ := getg()
+//  return _g_.goid
+// }
 func Goid() int {
 	defer func() {
 		if err := recover(); err != nil {

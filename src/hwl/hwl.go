@@ -1,6 +1,9 @@
 package main
 
+import "hwl/leetcode"
+
 func main() {
-	// leetcode.Test202()
-	// leetcode.GenBasicCode("202", "happy_number")
+	leetcode.Test204()
+	//leetcode.GenBasicCode("204", "countPrimes")
+
 }
