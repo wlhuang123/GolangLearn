@@ -3,7 +3,7 @@ package main
 import "hwl/leetcode"
 
 func main() {
-	leetcode.Test203()
-	// leetcode.GenBasicCode("203", "remove_link_element")
+	leetcode.Test206()
+	//leetcode.GenBasicCode("206", "reverse_link")
 
 }
