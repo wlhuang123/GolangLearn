@@ -1,9 +1,12 @@
 package main
 
-import "hwl/leetcode"
+import (
+	"hwl/leetcode"
+)
 
 func main() {
-	leetcode.Test237()
-	// leetcode.GenBasicCode("237", "delete_element")
+
+	leetcode.Test231()
+	//leetcode.GenBasicCode("231", "2_mi")
 
 }
