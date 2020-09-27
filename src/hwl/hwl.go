@@ -6,7 +6,7 @@ import (
 
 func main() {
 
-	leetcode.Test231()
-	//leetcode.GenBasicCode("231", "2_mi")
+	leetcode.Test242()
+	//leetcode.GenBasicCode("242", "legal_letter")
 
 }
