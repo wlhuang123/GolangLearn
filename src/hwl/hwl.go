@@ -1,10 +1,9 @@
 package main
 
-import (
-	"hwl/leetcode"
-)
+import "hwl/leetcode"
 
 func main() {
-	leetcode.Test172()
-	//leetcode.GenBasicCode("172", "jiechen_0_num")
+	leetcode.Test042()
+	//leetcode.GenBasicCode("042", "get_water")
+
 }
