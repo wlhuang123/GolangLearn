@@ -1,12 +1,18 @@
 package learn
 
-import "hwl/tool/logs"
+import (
+	"fmt"
+	"hwl/tool/logs"
+	"sync"
+	"time"
+)
 
 // ChannelTest .
 func ChannelTest() {
-	readFromChannelWhenClose()
-	writeFromChannelWhenClose()
-	getCap()
+	closeChanCanTrigerGetData()
+	// readFromChannelWhenClose()
+	// writeFromChannelWhenClose()
+	// getCap()
 }
 
 func readFromChannelWhenClose() {
@@ -40,4 +46,31 @@ func getCap() {
 
 	c <- 1
 	logs.Println("cat c:", cap(c), " len c:", len(c))
+}
+
+// closeChanCanTrigerGetData 关闭channel的时候，阻塞的chan可以读取出0值数据
+func closeChanCanTrigerGetData() {
+	var wg sync.WaitGroup
+	ch := make(chan int)
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			time.Sleep(1 * time.Second)
+			select {
+			case <-ch:
+				fmt.Println("ch get data")
+				time.Sleep(1 * time.Second)
+				fmt.Println("resource free")
+				return
+			default:
+				fmt.Println("working")
+			}
+		}
+	}()
+
+	time.Sleep(4 * time.Second)
+	close(ch)
+	wg.Wait()
+	fmt.Println("end")
 }
