@@ -1,9 +1,17 @@
 package main
 
-import "hwl/leetcode"
+import (
+	"hwl/demo/hello"
+	"hwl/leetcode"
+	"time"
+)
 
 func main() {
 	leetcode.Test042()
-	//leetcode.GenBasicCode("042", "get_water")
+	//l eetcode.GenBasicCode("042", "get_water")
+
+	time.Sleep(1 * time.Second)
+
+	hello.Hello()
 
 }
