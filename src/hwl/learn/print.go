@@ -1,6 +1,7 @@
 package learn
 
 import (
+	"fmt"
 	"hwl/tool/logs"
 )
 
@@ -17,7 +18,8 @@ func PrintTest() {
 	p.structValue().
 		porinter().
 		string().
-		println()
+		println().
+		printCallString()
 }
 
 func (p *print) structValue() *print {
@@ -55,4 +57,17 @@ func (p *print) println() *print {
 	logs.Printf("%v", s)
 
 	return p
+}
+
+type printCallT struct {
+	x int
+}
+
+func (t printCallT) String() string {
+	return "boo"
+}
+
+func (p *print) printCallString() {
+	t := printCallT{123}
+	fmt.Printf("%v\n", t)
 }
