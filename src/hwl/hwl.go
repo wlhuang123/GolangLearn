@@ -1,7 +1,10 @@
 package main
 
-import "hwl/learn"
+import (
+	"hwl/learn/pkgs"
+)
 
 func main() {
-	learn.PrintTest()
+	pkgs.ContextTest()
+
 }
