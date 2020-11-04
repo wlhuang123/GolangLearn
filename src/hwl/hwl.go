@@ -1,10 +1,10 @@
 package main
 
 import (
-	"hwl/learn/pkgs"
+	"hwl/design"
 )
 
 func main() {
-	pkgs.ContextTest()
+	design.VisitorTest()
 
 }
