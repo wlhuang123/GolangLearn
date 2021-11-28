@@ -10,7 +10,7 @@ func IsBoolEqual(left, right bool) {
 	if left == right {
 		logs.Println(OK)
 	} else {
-		logs.Println(Failed)
+		logs.Println(Failed, " left:", left, " right:", right)
 	}
 }
 
@@ -19,7 +19,7 @@ func IsIntEqual(left, right int) {
 	if left == right {
 		logs.Println(OK)
 	} else {
-		logs.Println(Failed)
+		logs.Println(Failed, " left:", left, " right:", right)
 	}
 }
 
@@ -28,7 +28,7 @@ func IsStringEqual(left, right string) {
 	if left == right {
 		logs.Println(OK)
 	} else {
-		logs.Println(Failed)
+		logs.Println(Failed, " left:", left, " right:", right)
 	}
 }
 
@@ -38,5 +38,5 @@ func IsTowSliceTheSame(left, right interface{}) {
 		logs.Println(OK)
 		return
 	}
-	logs.Println(Failed)
+	logs.Println(Failed, " left:", left, " right:", right)
 }
